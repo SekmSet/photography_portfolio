@@ -19,6 +19,8 @@
 - Configure your **DB credentials** _(DefaultConnection)_ in `appsettings.json` file
 - Add your secret **KEY** to generate JWT TOKEN in  `appsettings.json` file
 
+➡️ **[Swagger](http://localhost:5288/swagger/index.html)** 
+
 ## Client
 
 ```bash
