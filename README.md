@@ -30,11 +30,7 @@ dotnet ef migrations add init
 ```
 
 ```bash
- dotnet migrations add InitialCreate
-```
-
-```bash
-dotnet ef  ef database update
+dotnet ef database update
 ```
 
 ### Run app
