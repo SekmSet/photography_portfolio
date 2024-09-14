@@ -16,8 +16,32 @@
 
 ## Server
 
+```bash
+ cd server/server
+```
+
 - Configure your **DB credentials** _(DefaultConnection)_ in `appsettings.json` file
 - Add your secret **KEY** to generate JWT TOKEN in  `appsettings.json` file
+
+### Run migration
+
+```bash
+dotnet ef migrations add init
+```
+
+```bash
+ dotnet migrations add InitialCreate
+```
+
+```bash
+dotnet ef  ef database update
+```
+
+### Run app
+
+```bash
+dotnet Program.cs
+```
 
 ➡️ **[Swagger](http://localhost:5288/swagger/index.html)** 
 
