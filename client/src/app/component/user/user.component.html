@@ -1,0 +1,24 @@
+<div class="user-component flex min-h-full w-full flex-col items-center	justify-center px-6 py-12 lg:px-8">
+  <div class="py-1.5">
+    <img class="rounded-full" src="https://picsum.photos/200/200" alt="Image profile">
+  </div>
+
+  <div class="flex flex-col justify-center items-center py-1.5">
+    <p>{{ user?.username }}</p>
+    <p>{{ user?.email }}</p>
+  </div>
+
+  <div class="flex min-h-full w-full flex-row justify-around">
+    <div>
+      <button class="rounded bg-indigo-600 text-white p-2.5	" (click)="onUpdate()" type="submit">Modifier mes informations</button>
+    </div>
+
+    <div>
+      <button class=" rounded bg-red-800 text-white p-2.5" (click)="onDelete()" type="submit">Supprimer le compte</button>
+    </div>
+  </div>
+
+  <div *ngIf="editMode">
+    <app-update [user]="user"></app-update>
+  </div>
+</div>

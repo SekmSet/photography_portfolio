@@ -1,0 +1,30 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <form class="space-y-6" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label class="block text-sm font-medium leading-6 text-gray-900" for="usernameOrEmail">Nom d'utilisateur / Email: </label>
+      <input class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="usernameOrEmail" type="text" formControlName="usernameOrEmail">
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium leading-6 text-gray-900"  for="password">Mot de passe: </label>
+      <input class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="password" type="password" formControlName="password">
+    </div>
+
+    <div class="error">
+      <p class="text-orange-800" *ngIf="form.get('usernameOrEmail')?.hasError('required')">
+        <span class="underline">Nom d'utilisateur </span> requis
+      </p>
+
+      <p class="text-orange-800" *ngIf="form.get('password')?.hasError('required')">
+        <span class="underline">Adresse email</span> requis
+      </p>
+    </div>
+
+    <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500" type="submit" [disabled]="!form.valid">Valider</button>
+  </form>
+
+  <p class="mt-10 text-center text-sm text-gray-500">
+    Tu n'as pas encore de compte ?
+    <a href="/sign" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Inscrit toi ici</a>
+  </p>
+</div>

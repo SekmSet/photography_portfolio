@@ -1,0 +1,33 @@
+<div class="update-user-component flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 shadow-2xl">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label class="block text-sm font-medium leading-6 text-gray-900" for="username">Nom d'utilisateur : </label>
+      <input class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="username" type="text"  formControlName="username">
+    </div>
+
+    <div>
+      <label class="block text-sm font-medium leading-6 text-gray-900" for="email">Adresse email : </label>
+      <input class="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" id="email" type="text"  formControlName="email">
+    </div>
+
+    <div class="error py-1.5">
+      <p class="text-orange-800" *ngIf="form.get('username')?.hasError('required')">
+        <span class="underline">Nom d'utilisateur </span> requis
+      </p>
+
+      <p class="text-orange-800" *ngIf="form.get('username')?.hasError('minLength')">
+        <span class="underline">Nom d'utilisateur</span> doit comporter au moins 5 caractères
+      </p>
+
+      <p class="text-orange-800" *ngIf="form.get('email')?.hasError('required')">
+        <span class="underline">Adresse email</span> requis
+      </p>
+
+      <p class="text-orange-800" *ngIf="form.get('email')?.hasError('minLength')">
+        <span class="underline">L'adresse mail d'utilisateur</span> doit comporter au moins 5 caractères
+      </p>
+    </div>
+
+    <button class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500" type="submit" [disabled]="!form.valid">Valider</button>
+  </form>
+</div>
