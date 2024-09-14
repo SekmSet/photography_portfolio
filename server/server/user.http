@@ -1,0 +1,51 @@
+@server_HostAddress = http://localhost:5288
+
+// Create new account
+POST {{server_HostAddress}}/api/Auth/Register
+Content-Type: application/json
+
+{
+  "username": "Thomas",
+  "emailAddress": "thomas@gmail.com",
+  "password": "admin123"
+}
+
+###
+
+// Connect to account and get a token
+POST {{server_HostAddress}}/api/Auth/Login
+Content-Type: application/json
+
+{
+ "UsernameOrEmail": "Thomas",
+ "password": "admin123"
+}
+
+> {% client.global.set("auth_token", response.body.token); %}
+
+###
+
+// Get user informations
+GET {{server_HostAddress}}/api/User
+Authorization: Bearer {{auth_token}}
+###
+
+// Update user informations
+PUT {{server_HostAddress}}/api/User
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "username": "Thomas",
+  "emailAddress": "thomthom@gmail.com"
+}
+
+> {% client.global.set("auth_token", response.body.token); %}
+
+###
+
+// Delete user
+DELETE {{server_HostAddress}}/api/User
+Authorization: Bearer {{auth_token}}
+
+###
